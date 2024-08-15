@@ -1,0 +1,28 @@
+LXI H,1000H
+MVI M,01H
+
+LXI H,1001H
+MVI M,02H
+
+; DATA LOADED
+
+LXI H,1000H
+MOV A,M
+
+MVI B,00H
+
+CMA 
+ADI 01H
+STA 1100H
+
+JNC LOOP
+  INR B
+
+LOOP:  INX H
+             MOV A,M
+             CMA
+             ADD B
+             STA 1101H
+
+HLT
+
