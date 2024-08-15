@@ -24,7 +24,7 @@ MVI C,00H
 JNC LOOP
    INR C
 
-LOOP: STA 1100H
+LOOP: SHLD 1100H
             MOV A,C
             STA 1099H
 HLT
