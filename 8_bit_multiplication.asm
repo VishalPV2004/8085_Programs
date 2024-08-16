@@ -1,0 +1,28 @@
+LXI H,1000H
+MVI M,02H
+
+LXI H,1001H
+MVI M,12H
+
+; DATA STORED
+
+LXI H,1000H
+MOV D,M
+
+INX H
+
+MOV C,M
+
+MVI E,00H
+
+LOOP1 : ADD D
+               
+               JNC LOOP0
+                  INR E
+LOOP0: DCR C
+JNZ LOOP1
+
+STA 1100H
+MOV A,E
+STA 1099H
+HLT
